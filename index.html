@@ -24,7 +24,30 @@
         <img src="imgs/mode-toggle.svg" alt="toggle-mode" id="toggle" />
         <button id="add-book">+ Add Book</button>
       </div>
-      <div class="filter"></div>
+      <div class="filter">
+        <div class="read-status">
+          <img src="imgs/checkmark.svg" alt="genre">
+          <div class="dropdown">
+            <select name="read" id="read">
+              <option value="All">All</option>
+              <option value="Read">Read</option>
+              <option value="Unread">Unread</option>
+            </select>
+          </div>
+        </div>
+        <div class="genre">
+          <img src="imgs/genre.svg" alt="genre">
+          <div class="dropdown">
+            <select name="genre" id="genre">
+                <option value="All">All</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Action">Action</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Philosophy">Philosophy</option>
+                <option value="Self Help">Self Help</option>
+            </select>
+        </div>
+      </div>
       <div class="book-container"></div>
     </div>
   </body>

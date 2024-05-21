@@ -59,7 +59,6 @@ body {
 
 /* -------------------------navbar------------------- */
 .navbar {
-    border: 2px solid red;
     display: grid;
     grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
@@ -98,3 +97,26 @@ body {
     font-size: 1rem;
 }
 
+/* -------------------------filterbar------------------- */
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 120px;
+    margin-top: 20px;
+}
+
+.filter > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown select{
+    font-size: 1rem;
+    padding: 8px;
+    border: none;
+    background: none;
+    min-width: 20px;
+    width: 140px;
+}
