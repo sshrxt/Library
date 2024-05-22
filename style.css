@@ -84,7 +84,7 @@ body {
     padding: 1.1rem 2.3rem;
     border-radius: 5px;
     border: none;
-    background-color: gray;
+    background-color: rgb(42, 28, 54);
     font-size: 1rem;
     color: white;
     font-weight: bold;
@@ -173,10 +173,10 @@ body {
     display: grid;
     grid-template-columns: 3fr 3fr;
     padding: 20px;
-    background-color: gray;
+    background-color: rgb(42, 28, 54);
     border-radius: 15px;
     gap: 40px;
-    
+    background-image: url(imgs/sparkle-65.gif);
 }
 
 .book-cover {
@@ -213,6 +213,16 @@ body {
     color:rgb(231, 231, 231);
 }
 
+.main-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-info > div > svg:hover, .main-info > div > img:hover {
+    transform: scale(1.17);
+    fill: red;
+}
+
 /* ------------------------------------------- end of basic skeleton ------------------------------------------------- */
 
 dialog {
@@ -221,7 +231,7 @@ dialog {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: rgb(222, 247, 247);
     width: 40vw;
-    height: 90vh;
+    height: 80vh;
 }
 
 #form-dialog {
@@ -229,12 +239,13 @@ dialog {
     flex-direction: column;
     flex-grow: 0;
     justify-content: flex-start;
-    height: 80vh;
+    height: 60vh;
 }
 
 #form-title {
     font-size: 3rem;
     text-align: center;
+    margin-top: 25px;
 }
 
 #questions > div {
