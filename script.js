@@ -1,9 +1,10 @@
+//-----------------------------global-declarations----------------------//
 const background = document.querySelector("body");
 const mainContainer = document.querySelector(".main");
 const bookContainer = document.querySelector(".book-container");
 let myLibrary = [];
 
-//-------------------------------book objects-------------------------
+//-------------------------------book objects--------------------------//
 function Book(title, author, coverUrl, readStatus, genre) {
   this.title = title;
   this.author = author;
@@ -16,7 +17,7 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-//---------------------------------toggle------------------------------
+//---------------------------------toggle-------------------------------//
 let mode = "light";
 let toggleButton = document.querySelector("#toggle");
 toggleButton.addEventListener("click", () => {
@@ -36,9 +37,8 @@ function toggle() {
     mode = "light";
   }
 }
-//---------------------------------toggle------------------------------
 
-//--------------------------------open-form-modal----------------------
+//--------------------------------open-form-modal------------------------//
 const dialog = document.getElementById("myDialog");
 
 const showDialogBtn = document.getElementById("add-book");
@@ -53,9 +53,8 @@ showDialogBtn.addEventListener("click", () => {
 closeDialogBtn.addEventListener("click", () => {
   dialog.close();
 });
-//--------------------------------open-form-modal----------------------
 
-//--------------------------------add-book-----------------------------
+//--------------------------------add-book--------------------------------//
 const form = document.getElementById("form-dialog");
 
 form.addEventListener("submit", (event) => {
@@ -69,20 +68,23 @@ form.addEventListener("submit", (event) => {
   const newBook = new Book(bookName, author, cover, readStatus, genre);
   addBookToLibrary(newBook);
   dialog.close();
-  updateDisplay();
+  updateDisplay(myLibrary);
 });
 
-function updateDisplay() {
+function updateDisplay(currLibrary) {
   clearDisplay();
-  myLibrary.forEach((book) => {
+  currLibrary.forEach((book) => {
     const bookDiv = document.createElement("div");
 
     let buttonColor = "rgb(120, 201, 130)";
 
-    if (book.readStatus === "Read" || book.readStatus === "All") {
+    if (book.readStatus === "Read") {
       buttonColor = "rgb(120, 201, 130)";
-    } else {
+    } else if(book.readStatus === "Unread"){
       buttonColor = "rgb(201, 120, 139)";
+    }
+    else{
+        buttonColor = "black";
     }
 
     bookDiv.classList.add("book");
@@ -118,7 +120,6 @@ function clearDisplay() {
     bookContainer.removeChild(book);
   });
 }
-//-----------------------------add book ----------------------------------
 
 //----------------------------change-read-status--------------------------//
 
@@ -144,10 +145,8 @@ function updateBook(title) {
       }
     }
   });
-  updateDisplay();
+  updateDisplay(myLibrary);
 }
-
-//----------------------------change-read-status--------------------------//
 
 //----------------------------trash a book card---------------------------//
 
@@ -162,9 +161,55 @@ function addBookListeners() {
         (book) => book.title !== bookTitle.textContent
       );
       myLibrary = newLibrary;
-      updateDisplay();
+      updateDisplay(myLibrary);
     });
   });
 }
 
-//----------------------------trash a book card---------------------------//
+//----------------------------filter-cards---------------------------//
+const filterRead = document.querySelector("#nav-read");
+const filterGenre = document.querySelector("#nav-genre");
+let readFilter = "All";
+let genreFilter = "All"
+
+filterRead.addEventListener("change", ()=> {
+    readFilter = filterRead.value;
+    filterValues(readFilter, genreFilter);
+});
+
+filterGenre.addEventListener("change", ()=> {
+    genreFilter = filterGenre.value;
+    filterValues(readFilter, genreFilter);
+});
+
+
+function filterValues(readFilter, genreFilter) {
+    let newLibrary = [];
+    if(readFilter === "All" && genreFilter === "All"){
+        updateDisplay(myLibrary);
+    }
+    else if(readFilter === "All") {
+        myLibrary.forEach((book) => {
+            if((book.genre === genreFilter)) {
+                newLibrary.push(book);
+            }
+        })
+        updateDisplay(newLibrary);
+    }
+    else if(genreFilter === "All") {
+        myLibrary.forEach((book) => {
+            if((book.readStatus === readFilter)) {
+                newLibrary.push(book);
+            }
+        })
+        updateDisplay(newLibrary);
+    }
+    else {
+        myLibrary.forEach((book) => {
+            if((book.readStatus === readFilter) && (book.genre === genreFilter)) {
+                newLibrary.push(book);
+            }
+        })
+        updateDisplay(newLibrary);
+    }
+}
