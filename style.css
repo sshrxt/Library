@@ -47,6 +47,10 @@ table {
 	border-spacing: 0;
 }
 
+input:focus, select:focus {
+    outline: none;
+}
+
 /* ------------------------------------------- basic skeleton ------------------------------------------------- */
 
 body {
@@ -153,3 +157,74 @@ body {
     font-size: 2rem;
     color: rgb(59, 58, 58);
 }
+
+/* ------------------------------------------- end of basic skeleton ------------------------------------------------- */
+
+dialog {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(222, 247, 247);
+    width: 40vw;
+    height: 90vh;
+}
+
+#form-dialog {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    justify-content: flex-start;
+    height: 80vh;
+}
+
+#form-title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#questions > div {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 1.4rem;
+}
+
+#questions > div > input, #questions > div > select {
+    border: none;
+    font-size: 1.3rem;
+    border-bottom: 2px solid black;
+    color:black;
+    background-color: rgb(222, 247, 247);
+    margin-top: 15px;
+}
+
+menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+#closeDialogBtn, #save {
+    padding: 1rem;
+    width: 290px;
+    border-radius: 15px;
+    border: none;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#closeDialogBtn:hover, #save:hover {
+    transform: scale(1.07);
+}
+
+#save {
+    margin-right: 15px;
+    background-color: rgb(138, 193, 193);
+}
+
+#closeDialogBtn {
+    margin-left: 15px;
+    background-color: rgb(235, 164, 164);
+}
+
+
+

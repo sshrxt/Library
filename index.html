@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="main">
@@ -54,5 +55,48 @@
       <p id="quote">"I mean I love books and all, but reading oh my gosh I just love it, and yeah thats about it though"</p>
       <p id="quote-author"> -Shrut Patel</p>
     </div>
+
+    <dialog id="myDialog">
+      <h1 id="form-title">Add Book</h1>
+        <form method="dialog" id="form-dialog">
+            <div id="questions">
+              <div id="book-name-container">
+                <label for="book-name">Book Name</label>
+                <input type="text" id="book-name" class="book-name" name="book-name" placeholder="Some fun book">
+              </div>
+              <div class="author-container">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="Nice Person">
+              </div>
+              <div class="cover-container">
+                <label for="cover">Cover URL</label>
+                <input type="text" name="cover" id="cover" class="cover" placeholder="https://example.com">
+              </div>
+              <div class="status-container">
+                <label for="read-status">Status</label>
+                <select name="read" id="read">
+                  <option value="All">All</option>
+                  <option value="Read">Read</option>
+                  <option value="Unread">Unread</option>
+                </select>
+              </div>
+              <div class="genre-container">
+                <label for="genre">Genre</label>
+                <select name="genre" id="genre">
+                  <option value="All">All</option>
+                  <option value="Mystery">Mystery</option>
+                  <option value="Action">Action</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Philosophy">Philosophy</option>
+                  <option value="Self Help">Self Help</option>
+              </select>
+              </div>
+            </div>
+            <menu>
+                <button id="closeDialogBtn" type="reset">Close</button>
+                <button type="submit" id="save">Save</button>
+            </menu>
+        </form>
+    </dialog>
   </body>
 </html>
