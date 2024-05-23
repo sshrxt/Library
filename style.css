@@ -313,4 +313,8 @@ menu {
     .book {
         max-width: 450px;
     }
+    #quote {
+        margin: 0px;
+        margin-right: 35px;
+    }
 }
