@@ -2,6 +2,7 @@
 const background = document.querySelector("body");
 const mainContainer = document.querySelector(".main");
 const bookContainer = document.querySelector(".book-container");
+const quoteContainer = document.querySelector(".quote-container");
 const editForm = document.getElementById("form-dialog");
 const dialog = document.getElementById("myDialog");
 const showDialogBtn = document.getElementById("add-book");
@@ -21,26 +22,19 @@ function Book(title, author, coverUrl, readStatus, genre) {
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  removeQuote("add");
 }
 
-//---------------------------------toggle-------------------------------//
-let mode = "light";
-let toggleButton = document.querySelector("#toggle");
-toggleButton.addEventListener("click", () => {
-  toggle();
-});
-
-function toggle() {
-  if (mode === "light") {
-    console.log(mode);
-    background.style.backgroundColor = "rgb(64, 9, 175)";
-    mainContainer.style.color = "white";
-
-    mode = "dark";
-  } else {
-    background.style.backgroundColor = "whitesmoke";
-    mainContainer.style.color = "black";
-    mode = "light";
+function removeQuote(placeHolder) {
+  if(placeHolder === "add") {
+    if(myLibrary.length === 1) {
+      bookContainer.removeChild(quoteContainer);
+    }
+  }
+  else {
+    if(myLibrary.length === 0) {
+      bookContainer.appendChild(quoteContainer);
+    }
   }
 }
 
@@ -164,6 +158,7 @@ function addBookListeners() {
         (book) => book.title !== bookTitle.textContent
       );
       myLibrary = newLibrary;
+      removeQuote("remove");
       updateDisplay(myLibrary);
     });
   });

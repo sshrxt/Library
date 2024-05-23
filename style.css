@@ -68,7 +68,7 @@ body {
 /* -------------------------navbar------------------- */
 .navbar {
     display: grid;
-    grid-template-columns: auto 1fr auto auto auto;
+    grid-template-columns: auto 1fr auto auto;
     align-items: center;
     gap: 40px;
     padding: 16px;
@@ -131,7 +131,7 @@ body {
 }
 
 /* -------------------------book-content------------------- */
-/* .book-container {
+.quote-container {
     text-align: center;
     margin-top: 40px;
     text-wrap: wrap;
@@ -156,7 +156,7 @@ body {
     margin-top: 30px;
     font-size: 2rem;
     color: rgb(59, 58, 58);
-} */
+}
 
 /*-----------basic-book-skeleton------------*/
 .book-container {
@@ -292,5 +292,25 @@ menu {
     background-color: rgb(235, 164, 164);
 }
 
+/*------------------------------------media-query---------------------------*/
+@media(max-width: 600px){
+    .navbar {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 40px;
+        padding: 16px;
+    }
 
+    .navbar button {
+        grid-column: 1 / 4;
+    }
 
+    dialog {
+        width: 75vw;
+    }
+
+    .book {
+        max-width: 450px;
+    }
+}
